@@ -4,17 +4,137 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="16dp">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nmedia"
-        android:textSize="35sp"
-        android:textColor="@color/design_default_color_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:src="@mipmap/ic_netology"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/postTitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/postTitleTextView"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/postDateTextView"
+        app:layout_constraintEnd_toStartOf="@id/menuButton"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/postDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/postDateTextView"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/postTitleTextView" />
+
+    <ImageButton
+        android:id="@+id/menuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/postTitleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/postTitleTextView"
+        app:layout_constraintTop_toTopOf="@+id/postTitleTextView" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/upPostBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="imageView, postTitleTextView, postDateTextView, menuButton"/>
+
+    <TextView
+        android:id="@+id/postText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/postText"
+        android:paddingTop="16dp"
+        android:textSize="16sp"
+        android:autoLink="web"
+        app:layout_constraintTop_toTopOf="@id/upPostBarrier"/>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/downPostBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="postText"/>
+
+    <ImageView
+        android:id="@+id/likeImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_baseline_like"
+        app:layout_constraintTop_toBottomOf="@+id/postText" />
+
+    <TextView
+        android:id="@+id/likeAmountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amountOfLikes"
+
+        app:layout_constraintBottom_toBottomOf="@+id/likeImage"
+        app:layout_constraintStart_toEndOf="@+id/likeImage"
+        app:layout_constraintTop_toTopOf="@+id/likeImage" />
+
+    <ImageView
+        android:id="@+id/shareImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_baseline_share"
+        app:layout_constraintBottom_toBottomOf="@+id/likeImage"
+        app:layout_constraintStart_toEndOf="@id/likeAmountTV"
+        app:layout_constraintTop_toTopOf="@+id/likeImage" />
+
+    <TextView
+        android:id="@+id/sharedAmountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amountOfShared"
+        app:layout_constraintBottom_toBottomOf="@+id/shareImage"
+        app:layout_constraintStart_toEndOf="@+id/shareImage"
+        app:layout_constraintTop_toTopOf="@+id/shareImage" />
+
+    <ImageView
+        android:id="@+id/seenImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_eye"
+        app:layout_constraintBottom_toBottomOf="@+id/likeImage"
+        app:layout_constraintEnd_toStartOf="@+id/seenAmountTV"
+        app:layout_constraintTop_toTopOf="@+id/likeImage" />
+
+    <TextView
+        android:id="@+id/seenAmountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/amountOfSeen"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/seenImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seenImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
