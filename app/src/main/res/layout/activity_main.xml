@@ -8,7 +8,7 @@
     android:padding="16dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/avatarIV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_netology"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/postTitleTextView"
+        android:id="@+id/postTitleTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,51 +25,49 @@
         android:text="@string/postTitleTextView"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/postDateTextView"
-        app:layout_constraintEnd_toStartOf="@id/menuButton"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintBottom_toTopOf="@id/postDateTV"
+        app:layout_constraintEnd_toStartOf="@id/menuBtn"
+        app:layout_constraintStart_toEndOf="@+id/avatarIV"
+        app:layout_constraintTop_toTopOf="@+id/avatarIV" />
 
     <TextView
-        android:id="@+id/postDateTextView"
+        android:id="@+id/postDateTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/postDateTextView"
         android:textSize="16sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/postTitleTextView" />
+        app:layout_constraintBottom_toBottomOf="@+id/avatarIV"
+        app:layout_constraintStart_toEndOf="@+id/avatarIV"
+        app:layout_constraintTop_toBottomOf="@+id/postTitleTV" />
 
     <ImageButton
-        android:id="@+id/menuButton"
+        android:id="@+id/menuBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_baseline_menu"
-        app:layout_constraintBottom_toBottomOf="@+id/postTitleTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/postTitleTV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/postTitleTextView"
-        app:layout_constraintTop_toTopOf="@+id/postTitleTextView" />
+        app:layout_constraintStart_toEndOf="@id/postTitleTV"
+        app:layout_constraintTop_toTopOf="@+id/postTitleTV" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/upPostBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="imageView, postTitleTextView, postDateTextView, menuButton"/>
+        app:constraint_referenced_ids="avatarIV, postTitleTV, postDateTV, menuBtn"/>
 
     <TextView
-        android:id="@+id/postText"
+        android:id="@+id/postTextTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/postText"
-        android:paddingTop="16dp"
+        android:paddingTop="10dp"
         android:textSize="16sp"
         android:autoLink="web"
         app:layout_constraintTop_toTopOf="@id/upPostBarrier"/>
@@ -79,62 +77,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="postText"/>
+        app:constraint_referenced_ids="postTextTV"/>
 
     <ImageView
-        android:id="@+id/likeImage"
+        android:id="@+id/likeIV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_baseline_like"
-        app:layout_constraintTop_toBottomOf="@+id/postText" />
+        android:paddingRight="10sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:src="@drawable/ic_empty_like"
+        app:layout_constraintTop_toBottomOf="@+id/postTextTV" />
 
     <TextView
         android:id="@+id/likeAmountTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/amountOfLikes"
-
-        app:layout_constraintBottom_toBottomOf="@+id/likeImage"
-        app:layout_constraintStart_toEndOf="@+id/likeImage"
-        app:layout_constraintTop_toTopOf="@+id/likeImage" />
+        tools:text="@string/amountOfLikes"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/likeIV"
+        app:layout_constraintStart_toEndOf="@+id/likeIV"
+        app:layout_constraintTop_toTopOf="@+id/likeIV" />
 
     <ImageView
-        android:id="@+id/shareImage"
+        android:id="@+id/shareIV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:padding="10sp"
         android:src="@drawable/ic_baseline_share"
-        app:layout_constraintBottom_toBottomOf="@+id/likeImage"
+        app:layout_constraintBottom_toBottomOf="@+id/likeIV"
         app:layout_constraintStart_toEndOf="@id/likeAmountTV"
-        app:layout_constraintTop_toTopOf="@+id/likeImage" />
+        app:layout_constraintTop_toTopOf="@+id/likeIV" />
 
     <TextView
         android:id="@+id/sharedAmountTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/amountOfShared"
-        app:layout_constraintBottom_toBottomOf="@+id/shareImage"
-        app:layout_constraintStart_toEndOf="@+id/shareImage"
-        app:layout_constraintTop_toTopOf="@+id/shareImage" />
+        tools:text="@string/amountOfShared"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shareIV"
+        app:layout_constraintStart_toEndOf="@+id/shareIV"
+        app:layout_constraintTop_toTopOf="@+id/shareIV" />
 
     <ImageView
-        android:id="@+id/seenImage"
+        android:id="@+id/seenIV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_eye"
-        app:layout_constraintBottom_toBottomOf="@+id/likeImage"
+        android:padding="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/likeIV"
         app:layout_constraintEnd_toStartOf="@+id/seenAmountTV"
-        app:layout_constraintTop_toTopOf="@+id/likeImage" />
+        app:layout_constraintTop_toTopOf="@+id/likeIV" />
 
     <TextView
         android:id="@+id/seenAmountTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/amountOfSeen"
-        android:layout_marginStart="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/seenImage"
+        tools:text="@string/amountOfSeen"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/seenIV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seenImage" />
+        app:layout_constraintTop_toTopOf="@+id/seenIV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
