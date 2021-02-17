@@ -44,12 +44,6 @@ class MainActivity : AppCompatActivity() {
                 seenAmountTV.setText(viewDigitAmounts(post.amountOfSeen))
             }
 
-            root.setOnClickListener{
-                seenAmountTV.setText("666")
-                sharedAmountTV.setText("666")
-                likeAmountTV.setText("666")
-            }
-
             likeAmountTV.setText(post.amountOfLikes.toString())
             seenAmountTV.setText(post.amountOfSeen.toString())
             sharedAmountTV.setText(post.amountOfShared.toString())
